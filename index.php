@@ -7,9 +7,9 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 	<title>卓越科技大學校園資訊系統</title>
-	<link href="./home_files/css.css" rel="stylesheet" type="text/css">
-	<script src="./home_files/jquery-1.9.1.min.js"></script>
-	<script src="./home_files/js.js"></script>
+	<link href="./css/css.css" rel="stylesheet" type="text/css">
+	<script src="./js/jquery-3.4.1.js"></script>
+	<script src="./js/js.js"></script>
 </head>
 
 <body>
