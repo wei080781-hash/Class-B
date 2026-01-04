@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+﻿<?php include_once "./api/db.php" ?>  <!-- 引進資料庫檔案 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!-- saved from url=(0068)?do=admin&redo=title -->
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -83,14 +84,16 @@
 					</tbody>
 				</table>
 				<?php 
-				// if(isset($_GET['do'])){
-					
+				// 原始
+				// if(isset($_GET['do'])){	
 				// 	$do=$_GET['do'];
 				// }else{
 				// 	$do="title";
 				// }
-				$do=(isset($_GET['do']))?$_GET['do']:"title";
-
+				// 在簡化
+				// $do=(isset($_GET['do']))?$_GET['do']:"title";
+				
+				$do=$_GET['do']??"title";   /* 最終簡化版本但是這個只用在有出現isset()涵式*/
 				$file="./back/".$do."php";
 				
 				if(file_exists($file)){
