@@ -3,9 +3,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <title>卓越科技大學校園資訊系統</title>
-<link href="./css/css.css" rel="stylesheet" type="text/css">
-	<script src="./js/jquery-3.4.1.js"></script>
-	<script src="./js/js.js"></script>
+<link href="./news_files/css.css" rel="stylesheet" type="text/css">
+<script src="./news_files/jquery-1.9.1.min.js"></script>
+<script src="./news_files/js.js"></script>
 </head>
 
 <body>
@@ -17,7 +17,7 @@
 </div>
 <iframe style="display:none;" name="back" id="back"></iframe>
 	<div id="main">
-    	<a title="" href="?"><div class="ti" style="background:url(&#39;&#39;); background-size:cover;"></div><!--標題--></a>
+    	<a title="" href="?"><div class="ti" style="background:url(&#39;use/&#39;); background-size:cover;"></div><!--標題--></a>
         	<div id="ms">
              	<div id="lf" style="float:left;">
             		<div id="menuput" class="dbor">
