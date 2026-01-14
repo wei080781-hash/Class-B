@@ -99,5 +99,19 @@ class DB
 
     function del($id){
         $sql = "DELETE from `$this->table` ";
+        if (is_array($id)){
+            $tmp = $this->arrayToSql($id);
+            $sql .= " where " . implode(" && ", $tmp);
+        }else {
+            $sql .= " where `id`='$id' ";
+        }
+        return $this->pdo->exec($sql);
+    }
+
+    private function arrayTosql($array){
+        $tmp = [];
+        foreach ($array as $key =>$value) {
+            $tmo[] = "`$key`='$value'";
+        }
     }
 }
