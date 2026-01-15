@@ -76,7 +76,7 @@ class DB
         if (isset($arg[1])) {
             $sql .= $arg[1];
         }
-        return $this->pdo->query($sql)->fetchColum();
+        return $this->pdo->query($sql)->fetchColumn();
     }
 
     function update($array)
@@ -113,5 +113,26 @@ class DB
         foreach ($array as $key =>$value) {
             $tmo[] = "`$key`='$value'";
         }
+        return $tmp;
+    }
+
+    function q($sql) {
+        $dsn = "mysql:host=localhost;dbname=db01;charset=utf8";
+        $pdo = new PDO($dsn, 'root','');
+        return $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    function to($url) {
+        header("location" . $url);
     }
 }
+    $Title = new DB('title');
+    $Ad    = new DB('ad');
+    $Mvim  = new DB('mvim');
+    $News  = new DB('news');
+    $Image = new Db('image');
+    $Admin = new DB('admin');
+    $Menu  = new DB('menu');
+    $Total = new DB('total');
+    $Bottom = new DB('bottom');
+?>
