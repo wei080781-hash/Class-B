@@ -84,7 +84,9 @@
 				</table>
 				<?php include "./back/title.php"?>
 				<?php 
-				$do=(isset($_GET['do']))?$_GET['do']:"title";
+				//$do=(isset($_GET['do']))?$_GET['do']:"title";
+				//簡化版
+				$do=$_GET['do']??"title";
 				$file="./back/".$do.".php";
 				if(file_exists($file)){
 					include $file;
