@@ -82,7 +82,7 @@
 						</tr>
 					</tbody>
 				</table>
-				<?php include "./back/title.php"?>
+				<!-- <?php include "./back/title.php"?> -->
 				<?php 
 				//$do=(isset($_GET['do']))?$_GET['do']:"title";
 				//簡化版
@@ -91,7 +91,7 @@
 				if(file_exists($file)){
 					include $file;
 				}else{
-					include "./back/titl.php";
+					include "./back/title.php";
 				}
 				
 				?>>
