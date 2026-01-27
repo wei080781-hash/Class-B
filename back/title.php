@@ -10,13 +10,20 @@
                     <td width="7%">刪除</td>
                     <td></td>
                 </tr>
+                <tr class="cent">
+                    <td>網站標題</td>
+                    <td>替代文字</td>
+                    <td>顯示</td>
+                    <td>刪除</td>
+                    <td></td>
+                </tr>
             </tbody>
         </table>
         <table style="margin-top:40px; width:70%;">
             <tbody>
                 <tr>
                     <td width="200px"><input type="button"
-                            onclick="op(&#39;#cover&#39;,&#39;#cvr&#39;,&#39;view.php?do=title&#39;)" value="新增網站標題圖片">
+                            onclick="op(&#39;#cover&#39;,&#39;#cvr&#39;,&#39;modal/title.php?table=title&#39;)" value="新增網站標題圖片">
                     </td>
                     <td class="cent"><input type="submit" value="修改確定"><input type="reset" value="重置">
                     </td>
