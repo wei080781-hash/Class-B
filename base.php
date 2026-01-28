@@ -83,6 +83,10 @@ class DB
     }
 }
 
+function to($url){
+    header("location:".$url);
+}
+
 // 實例化物件 (注意大小寫一致性喔！)
 $Title = new DB("title");
 $Ad = new DB("ad");
