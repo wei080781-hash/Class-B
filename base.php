@@ -26,7 +26,7 @@ class DB
             $sql .= " where " . implode(" && ", $tmp);
         }
         if (!empty($arg[1])) {
-            $sql .= $arg[1];
+            $sql .="" . $arg[1];
         }
         return $this->pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -98,15 +98,25 @@ $News = new DB("news");
 $Admin = new DB("admin");
 $Menu = new DB("menu");
 
+
 // 抓取進站人數
 $total = $Total->find(1);
+if(!$total){ // 如果沒資料，我們幫它生一個預設值，才不會報錯喔
+    $total = ['total' => 0];
+}
 
+// 抓取頁尾版權 (也要抓喔！不然 admin.php 會找不到 $bottom)
+$bottom = $Bottom->find(1);
+if(!$bottom){
+    $bottom = ['bottom' => ''];
+}
+
+// 訪客計數邏輯
 if(empty($_SESSION['visited'])){
-    if($total){
+    // 只有在 $total 真的存在於資料庫時才加 1
+    if(isset($total['id'])){
         $total['total']++;
         $Total->save($total);
-        // 重新抓取更新後的資料
-        $total = $Total->find(1);
     }
     $_SESSION['visited'] = 1;
 }

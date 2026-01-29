@@ -1,7 +1,7 @@
-<form action="api/add.php" method="post" enctype="multipart/form-data">
-    <h3 class="cent">新增標題圖片區</h3>
-</form>
+<h3 class="cent">新增標題圖片區</h3>
+
 <hr>
+<form action="api/add.php" method="post" enctype="multipart/form-data">
 <table style="margin:auto">
     <tr>
         <td style="text-align:right">標題區圖片</td>
@@ -17,3 +17,4 @@
     <input type="submit" value="新增">
     <input type="reset" value="重置">
 </div>
+</form>
