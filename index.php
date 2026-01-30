@@ -38,7 +38,7 @@
             <!-- include -->
             <?php 
                 $do=(!empty($_GET['do']))?$_GET['do']:"main";
-                $file="back/".$do.".php" ;
+                $file="front/".$do.".php" ;
                 if(file_exists($file)){
                     include $file;
                 }else{
