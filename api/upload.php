@@ -15,3 +15,5 @@ if(!empty($_FILES['img']['tmp_name'])){
 
     to("../admin.php?do=$table");
 ?>
+
+

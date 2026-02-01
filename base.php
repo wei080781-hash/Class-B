@@ -22,27 +22,29 @@ class DB
            foreach($arg[0] as $key => $value){
                 $tmp[]=sprintf("`%s` = '%s'",$key,$value);
            } 
-           $sql=$sql . implode(" && ",$tmp);
+           // 肯定修正：加上 " WHERE "
+           $sql .= " WHERE " . implode(" && ",$tmp);
         }
         if(!empty($arg[1])){
-            $sql= $sql . $arg[1];
+            $sql .= " " . $arg[1];
         }
-        return $this->pdo->query($sql)->fetchAll();
+        return $this->pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function count(...$arg){
-       $sql="select count(*) from $this->table  " ;
+       $sql="select count(*) from $this->table " ;
        if(!empty($arg[0]) && is_array($arg[0])){
             foreach($arg[0] as $key => $value){
                 $tmp[]=sprintf("`%s`='%s'",$key,$value);
             }
-            $sql=$sql . implode(" && ",$tmp);
+            // 肯定修正：加上 " WHERE "
+            $sql .= " WHERE " . implode(" && ",$tmp);
        }
        if(!empty($arg[1])){
-            $sql= $sql . $arg[1];
+            $sql .= " " . $arg[1];
        }
-
-       return $this->pdo->query($sql)->fetchAll();
+       // 修正：count 應該回傳單一數值
+       return $this->pdo->query($sql)->fetchColumn();
     }
 
     public function find($arg){
@@ -74,17 +76,19 @@ class DB
     }
     public function save($arg){
         if(!empty($arg['id'])){
+            $tmp = []; // 確保陣列初始化
             foreach($arg as $key => $value){
                 if($key != 'id'){
 
                     $tmp[]=sprintf("`%s`='%s'",$key,$value);
                 }
             }
-            $sql="update $this->table set " . implode(",",$tmp) . " where `id` = '".$arg['id']."'";
+            $sql="update `$this->table` set " . implode(",",$tmp) . " where `id` = '".$arg['id']."'";
         }else{
-            $sql="insert into $this->table (`".implode("`,`",array_keys($arg))."`) values('".implode("','",$arg)."')";
+            $sql="insert into `$this->table` (`".implode("`,`",array_keys($arg))."`) values('".implode("','",$arg)."')";
         }
-        echo $sql;
+        // 這行 echo 會顯示在頁面上，如果不成功，請複製這行 SQL 到資料庫執行看看
+
         return $this->pdo->exec($sql);
     }
     public function q($sql){
