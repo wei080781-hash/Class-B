@@ -4,7 +4,6 @@ include_once "../base.php";
 // 取得操作的資料表
 $table = $_POST['table'];
 $db = new DB($table);
-
 // ✨ 改用 id[] 跑迴圈，這樣沒勾刪除也會執行更新！
 if(isset($_POST['id'])){
     foreach($_POST['id'] as $key => $id){

@@ -9,7 +9,7 @@
         </tr>
         <tr>
             <td style="text-align:right">標題區替代文字:</td>
-            <td><input type="text" name="text" id=""></td>
+            <td><input type="text[]" name="text[]" id=""></td>
         </tr>
     </table>
     <div class="cent">
