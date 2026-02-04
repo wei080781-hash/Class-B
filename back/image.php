@@ -16,7 +16,7 @@
                     $isChk=($row['sh']==1)?'checked':'';
                 ?>
                     <tr class="cent">
-                        <td><img src="img/<?= $row['img']; ?>" style="width:300px;height:30px"></td>
+                        <td><img src="img/<?= $row['img']; ?>" style="width:100px;height:68px"></td>
                         <td>
                             <input type="hidden" name="id[]" value="<?=$row['id'];?>">
                         </td>

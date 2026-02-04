@@ -18,7 +18,7 @@
                     <tr class="cent">
 
                         <td>
-                            <input type="text" name="text[]" value="<?= $row['text']; ?>">
+                            <input type="text" name="text[]" value="<?= $row['text']; ?>"style="width:90%">
                             <input type="hidden" name="id[]" value="<?=$row['id'];?>">
                         </td>
                         <td><input type="checkbox" name="sh[]" value="<?= $row['id']; ?>" <?= $isChk;?>></td>

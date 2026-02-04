@@ -3,7 +3,7 @@
         <table width=100%>
             <tbody>
                 <tr class="yel">
-                    <td width="45%">動畫圖片</td>
+                    <td width="68%">動畫圖片</td>
                     <td width="7%">顯示</td>
                     <td width="7%">刪除</td>
                     <td></td>
@@ -16,13 +16,13 @@
                     $isChk=($row['sh']==1)?'checked':'';
                 ?>
                     <tr class="cent">
-                        <td><img src="img/<?= $row['img']; ?>" style="width:300px;height:30px"></td>
-                        <td>
-                            <input type="hidden" name="id[]" value="<?=$row['id'];?>">
-                        </td>
+                        <td><img src="img/<?= $row['img']; ?>" style="width:120px;height:80px"></td>
                         <td><input type="checkbox" name="sh[]" value="<?= $row['id']; ?>" <?= $isChk;?>></td>
                         <td><input type="checkbox" name="del[]" value="<?= $row['id']; ?>"></td>
-                        <td><input type="button" value="更換動畫" onclick="op('#cover','#cvr','modal/upload_<?=$table;?>.php?table=<?=$table;?>&id=<?=$row['id'];?>')"></td>
+                        <td>
+                        <input type="button" value="更換動畫" onclick="op('#cover','#cvr','modal/upload_<?=$table;?>.php?table=<?=$table;?>&id=<?=$row['id'];?>')">
+                        <input type="hidden" name="id[]" value="<?=$row['id'];?>">
+                        </td>
                     </tr>
                 <?php
                 }
