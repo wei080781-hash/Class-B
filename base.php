@@ -87,7 +87,7 @@ class DB
         }else{
             $sql="insert into `$this->table` (`".implode("`,`",array_keys($arg))."`) values('".implode("','",$arg)."')";
             // echo "<pre>";
-            // print_r($arg);
+            // print_r($sql);
             // echo "</pre>";
             // exit;
         }
