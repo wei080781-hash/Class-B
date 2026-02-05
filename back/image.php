@@ -3,9 +3,9 @@
         <table width=100%>
             <tbody>
                 <tr class="yel">
-                    <td width="45%">校園映像資料圖片</td>
-                    <td width="7%">顯示</td>
-                    <td width="7%">刪除</td>
+                    <td width="70%">校園映像資料圖片</td>
+                    <td width="10%">顯示</td>
+                    <td width="10%">刪除</td>
                     <td></td>
                 </tr>
                 <?php
@@ -17,10 +17,10 @@
                 ?>
                     <tr class="cent">
                         <td><img src="img/<?= $row['img']; ?>" style="width:100px;height:68px"></td>
-                        <td>
-                            <input type="hidden" name="id[]" value="<?=$row['id'];?>">
-                        </td>
-                        <td><input type="checkbox" name="sh[]" value="<?= $row['id']; ?>" <?= $isChk;?>></td>
+                        
+                        <input type="hidden" name="id[]" value="<?=$row['id'];?>">
+                    
+                        <td><input type="checkbox" name="sh[]" value="<?= $row['id']; ?>"<?= $isChk;?>></td>
                         <td><input type="checkbox" name="del[]" value="<?= $row['id']; ?>"></td>
                         <td><input type="button" value="更換圖片" onclick="op('#cover','#cvr','modal/upload_<?=$table;?>.php?table=<?=$table;?>&id=<?=$row['id'];?>')"></td>
                     </tr>

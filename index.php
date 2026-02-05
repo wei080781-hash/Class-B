@@ -8,7 +8,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
     <title>卓越科技大學校園資訊系統</title>
-    <?php include './head/head.php'; ?>
+    <?php include_once "head.php"?>
 </head>
 
 <body>

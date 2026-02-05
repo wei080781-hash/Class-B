@@ -86,6 +86,10 @@ class DB
             $sql="update `$this->table` set " . implode(",",$tmp) . " where `id` = '".$arg['id']."'";
         }else{
             $sql="insert into `$this->table` (`".implode("`,`",array_keys($arg))."`) values('".implode("','",$arg)."')";
+            // echo "<pre>";
+            // print_r($arg);
+            // echo "</pre>";
+            // exit;
         }
         // 這行 echo 會顯示在頁面上，如果不成功，請複製這行 SQL 到資料庫執行看看
 
@@ -112,14 +116,36 @@ $News=new DB("news");
 $Admin=new DB("admin");
 $Menu=new DB("menu");
 
-$title=$Title->find(['sh'=>1]);
-$bottom=$Bottom->find(1);
-$total=$Total->find(1);
-if(empty($_SESSION['visited'])){
+// --- 標題與頁尾 ---
+$title = $Title->find(['sh' => 1]);
+$bottom = $Bottom->find(1);
+
+// 如果資料庫沒資料，強制給一個預設結構
+if (!$bottom) {
+    $bottom = ['id' => 1, 'bottom' => '預設頁尾內容'];
+}
+
+// --- 進站人數處理 (重點修正) ---
+$total = $Total->find(1);
+
+if (!$total) {
+    // 資料庫沒資料時，手動創一筆 id=1 的資料
+    $total = ['id' => 1, 'total' => 0];
+    $Total->save($total);
+    // 確保變數現在有東西
+}
+
+if (empty($_SESSION['visited'])) {
     $total['total']++;
     $Total->save($total);
-    $total=$Total->find(1);
-    $_SESSION['visited']=1;
+    // 儲存後重新讀取，確保資料同步
+    $total = $Total->find(1);
+    $_SESSION['visited'] = 1;
+}
+
+// 萬一 find(1) 還是失敗 (例如 ID 被跳過了)，補一個最後防線
+if (!isset($total['total'])) {
+    $total = ['total' => 0];
 }
 
 ?>

@@ -19,8 +19,8 @@
                 ?>
                     <tr class="cent">
 
-                        <td><input type="text" name="name[]" value="<?= $row['name4']; ?>"></td>
-                        <td><input type="text" name="href[]" value="<?= $row['href']; ?>"></td>
+                        <td><input type="text" name="name[]" value="<?= $row['name'][0]; ?>"></td>
+                        <td><input type="text" name="href[]" value="<?= $row['href'][0]; ?>"></td>
                         <td><?= $db->count(['parent'=> $row['id']]);?></td>
                         <td><input type="checkbox" name="sh[]" value="<?= $row['id']; ?>" <?= $isChk;?>></td>
                         <td><input type="checkbox" name="del[]" value="<?= $row['id'];?>"></td>

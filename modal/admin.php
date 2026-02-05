@@ -5,15 +5,15 @@
         
         <tr>
             <td style="text-align:right">帳號:</td>
-            <td><input type="text[]" name="acc[]" id=""></td>
+            <td><input type="text[]" name="acc" id=""></td>
         </tr>
         <tr>
             <td style="text-align:right">密碼:</td>
-            <td><input type="password[]" name="pw[]"></td>
+            <td><input type="password" name="pw"></td>
         </tr>
         <tr>
             <td style="text-align:right">確認密碼:</td>
-            <td><input type="password[]" name="pw2[]"></td>
+            <td><input type="password" name="pw2"></td>
         </tr>
     </table>
     <div class="cent">

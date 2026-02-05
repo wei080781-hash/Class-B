@@ -5,11 +5,11 @@
         
         <tr>
             <td style="text-align:right">主選單名稱:</td>
-            <td><input type="text" name="name[]"></td>
+            <td><input type="text" name="name"></td>
         </tr>
         <tr>
             <td style="text-align:right">選單連結網址:</td>
-            <td><input type="text" name="href[]"></td>
+            <td><input type="text" name="href"></td>
         </tr>
     </table>
     <div class="cent">
