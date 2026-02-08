@@ -13,7 +13,7 @@
                 <?php
                $table = $do;
                 $db = new DB($table);
-                $rows = $db->all();
+                $rows = $db->all(['parent'=>0]);
                 foreach ($rows as $row) {
                     $isChk=($row['sh']==1)?'checked':"";
                 ?>
@@ -23,7 +23,6 @@
                         <td><?= $db->count(['parent'=> $row['id']]);?></td>
                         <td><input type="checkbox" name="sh[]" value="<?= $row['id']; ?>"<?= $isChk;?>></td>
                         <td><input type="checkbox" name="del[]" value="<?= $row['id'];?>"></td>
-                        <!-- <td><input type="checkbox" name="del[]" value="<?= $row['id'];?>"></td> -->
                         <td><input type="button" value="編輯次選單" onclick="op('#cover','#cvr','modal/submenu.php?table=<?=$table;?>&id=<?=$row['id'];?>')"></td>
                         <input type="hidden" name="id[]" value="<?= $row['id'];?>">
                     </tr>

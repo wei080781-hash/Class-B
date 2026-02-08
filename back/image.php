@@ -11,7 +11,15 @@
                 <?php
                $table = $do ?? 'default';
                 $db = new DB($table);
-                $rows = $db->all();
+                
+                $total=$db->count();
+                $num=3;
+                $pages=ceil($total/ $num);
+                $now=(!empty($_GET['P']))?$_GET['P']:1;
+                if($now<1) $now =1;
+                if($now > $pages && $pages > 0) $now=$pages;
+                $start=($now-1)*$num;
+                $rows = $db->all([], "limit $start,$num");
                 foreach ($rows as $row) {
                     $isChk=($row['sh']==1)?'checked':'';
                 ?>
@@ -29,6 +37,21 @@
                 ?>
             </tbody>
         </table>
+
+        <div class="cent">
+            <?php
+                if(($now-1)>0){
+                    echo"<a href='?do=$table&P=".($now-1)."' style='text-decoration:none;font-size:25px'> < </a>";
+                }
+                for($i=1;$i<=$pages;$i++){
+                    $fontsize=($now==$i)?'30px':'20px';
+                    echo "<a href='?do=$table&P=$i' style='text-decoration:none;font-size:$fontsize'> $i </a>";
+                }
+                if(($now+1)<=$pages){
+                    echo "<a href='?do=$table&P=".($now+1)."' style='text-decoration:none;font-size:25px'> > </a>";
+                }
+            ?>
+        </div>
         <table style="margin-top:40px;width:70%">
             <tbody>
                 <tr>

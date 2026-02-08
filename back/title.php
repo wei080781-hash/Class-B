@@ -14,12 +14,15 @@
                 $db = new DB($table);
                 $rows = $db->all();
                 foreach ($rows as $row) {
+                    $shVal=$row['sh']?? 0;
                     $isChk=($row['sh']==1)?'checked':'';
+                    $imText=$row['text'] ?? '';
+                    $imgFile=$row['img'] ?? '';
                 ?>
                     <tr class="cent">
-                        <td><img src="img/<?= $row['img']; ?>" style="width:300px;height:30px"></td>
+                        <td><img src="img/<?= $imgFile; ?>" style="width:300px;height:30px"></td>
                         <td>
-                            <input type="text" name="text[]" value="<?= $row['text']; ?>">
+                            <input type="text" name="text[]" value="<?= $imText; ?>">
                             <input type="hidden" name="id[]" value="<?=$row['id'];?>">
                         </td>
                         <td><input type="radio" name="sh" value="<?= $row['id']; ?>" <?= $isChk;?>></td>

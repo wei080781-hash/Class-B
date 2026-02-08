@@ -21,8 +21,8 @@
     </div>
     <iframe style="display:none;" name="back" id="back"></iframe>
     <div id="main">
-        <a title="" href="index.php">
-            <div class="ti" style="background:url(''); background-size:cover;"></div>
+        <a title="<?=$title['text'];?>" href="index.php">
+            <div class="ti" style="background:url('img/<?=$title['img'];?>'); background-size:cover;"></div>
             <!--標題-->
         </a>
         <div id="ms">
