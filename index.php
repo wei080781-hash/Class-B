@@ -19,7 +19,7 @@
             <div id="cvr" style="position:absolute; width:99%; height:100%; margin:auto; z-index:9898;"></div>
         </div>
     </div>
-    <iframe style="display:none;" name="back" id="back"></iframe>
+
     <div id="main">
         <a title="<?=$title['text'];?>" href="index.php">
             <div class="ti" style="background:url('img/<?=$title['img'];?>'); background-size:cover;"></div>
@@ -51,6 +51,17 @@
                     onclick="lo('?do=login')">管理登入</button>
                 <div style="width:89%; height:480px;" class="dbor">
                     <span class="t botli">校園映象區</span>
+                    <div class="cent"onclick="pp(1)"><img src="icon/up.jpg"></div>
+                    <?php
+                    ?>
+                    <div class="cent"><img src="img/up.jpg"style="width:150px;height:103px;border:3px solid orange;margin:3px"></div>
+                    <?php
+                    ?>
+                    <div class="cent"onclick="pp(2)"><img src="icon/dn.jpg"></div>
+                    <?php
+
+
+                    ?>
                     <script>
                     var nowpage = 0,
                         num = 0;
@@ -60,7 +71,7 @@
                         if (x == 1 && nowpage - 1 >= 0) {
                             nowpage--;
                         }
-                        if (x == 2 && (nowpage + 1) * 3 <= num * 1 + 3) {
+                        if (x == 2 && (nowpage + 1)  <= num - 3) {
                             nowpage++;
                         }
                         $(".im").hide()
