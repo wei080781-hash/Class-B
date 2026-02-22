@@ -1,7 +1,7 @@
 <?php
 switch($_GET['table']){
     case "title":
-        $title="標題區圖片"
+        $title="標題區圖片";
         $header="更新圖片";
         break;
     case "image":

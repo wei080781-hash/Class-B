@@ -1,9 +1,11 @@
-﻿<?php include_once "./api/db.php";
+﻿
+<?php 
+include_once "./api/db.php";
 
-if(!isset($_SESSION['admin'])){
-    to("index.php");
-    // exit();
-}
+// if(!isset($_SESSION['admin'])){
+//     to("index.php");
+//     exit();
+// }
 ?>
 
 <!DOCTYPE html
