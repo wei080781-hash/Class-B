@@ -7,13 +7,7 @@
                     <td width="50%">進站總人數：</td>
                     <td>
                       <input type="number" name="total" value="<?=$Total->find(1)['total'];?>">
-                      <?php
-                      $data =$Total->find(1);
-                      echo '<pre>';
-                      print_r($data);
-                      echo '<pre>';
-                      ?>  
-                    </td>   
+                    </td>  
                 </tr>
 
 
