@@ -15,8 +15,10 @@ switch($table){
     break;
     default:
         $ids=array_keys($_POST['text']);
-
-    
+        // echo '<pre>';
+        // print_r($table);
+        // echo '</pre>';
+        // exit
 }
 
 foreach($ids as $id){

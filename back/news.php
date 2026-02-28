@@ -52,6 +52,20 @@
                     }
 
                 ?>
+                </div>                        
+                <table style="margin-top:40px; width:70%;">
+                    <tbody>
+                        <tr>
+                            <td width="200px">
+                                <input type="button"
+                                    onclick="op('#cover','#cvr','./modal/<?=$do;?>.php?table=<?=$do;?>')"
+                                    value="新增最新消息">
+                            </td>
+                            <td class="cent"><input type="submit" value="修改確定"><input type="reset" value="重置">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </form>
         </div>
-    </form>
-</div>
