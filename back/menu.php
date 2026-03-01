@@ -13,7 +13,8 @@
                                 </tr>
                                 <?php
                                 $rows=$Menu->all(['main_id'=>0]);
-                                foreach($rows as $row):   
+                                var_dump($rows);
+                                foreach($rows as $row):       
                                 ?>
                                 <tr>
                                     <td>
@@ -32,11 +33,6 @@
                                         <input type="button" value="編輯次選單" 
                                             onclick="op('#cover','#cvr','./modal/submenu.php?id=<?=$row['id'];?>')">
                                     </td>
-                                    <!-- <?php
-                                    echo '<pre>';
-                                    print_r($row);
-                                    echo '</pre>';
-                                    ?> -->
                                 </tr>
                                 <?php
                                 endforeach;
