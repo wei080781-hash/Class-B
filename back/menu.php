@@ -13,7 +13,6 @@
                                 </tr>
                                 <?php
                                 $rows=$Menu->all(['main_id'=>0]);
-                                var_dump($rows);
                                 foreach($rows as $row):       
                                 ?>
                                 <tr>
