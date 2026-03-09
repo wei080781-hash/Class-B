@@ -78,9 +78,11 @@
                             $("#altt").show()
                         }
                     )
-
-
-
+                    $(".ssaa li").mouseout(
+                        function() {
+                            $("#altt").hide()
+                        }
+                    )  
                     </script>    
                 </div>        
             </div>
