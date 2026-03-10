@@ -103,7 +103,49 @@
             </script>
             <div class="di di ad" style="height:540px; width:23%; padding:0px; margin-left:22px; float:left;">
                 <!-- 右邊 -->
-
+                <?php if(isset($_SESSION['admin'])):?>
+                <button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;" 
+                     onclick="lo(&#39;back.php&#39;)">返回管理</button>
+                <?php else:?>
+                 <button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;"
+                     onclick="lo(&#39;?do=login&#39;)">管理登入</button>
+                <?php endif;?>
+                <div style="width:89%; height:480px;" class="dbor">
+                    <span class="t botli">校園映象區</span>
+                    <div class='btn' onclick="pp(1)"><img src="imagess/up.jpg" alt="" srcset=""></div> 
+                    <div>
+                        <?php
+                            $images=$Image->all(['sh'=>1]);
+                            foreach($images as $key => $img){
+                            echo "<div class='im' id='ssaa{$key}' style='display:none;text-align:center;margin:3px 0'>";
+                            echo "<img src='upload/{$img['img']}' style='width:150px;height:103px;border:3px solid orange;'>";
+                            echo "</div>";
+                            }
+                        ?>
+                        </div>
+                        <div class='btn' onclick="pp(2)"><img src="imagess/dn.jpg" alt="" srcset=""></div>
+                        <script>
+                            var nowpage = 0,
+                                num = <?=count($images)?>;
+                            function pp(x) {
+                                var s, t;
+                                if (x == 1 && nowpage - 1 >= 0) {
+                                    nowpage--;
+                                }
+                                if (x == 2 && (nowpage + 1) <= num * 1 - 3) {
+                                    nowpage++;
+                                }
+                                $(".im").hide()
+                                for (s = 0; s <= 2; s++) {
+                                    t = s * 1 + nowpage * 1;
+                                    $("#ssaa" + t).show()
+                                    }
+                                     console.log(x, nowpage, num); // 把 num 也印出來
+                            }
+                            pp(1)      
+                        </script>
+                    </div>      
+                </div>    
             </div>    
         </div>
     </div>
