@@ -10,7 +10,7 @@
 
     <title>卓越科技大學校園資訊系統</title>
     <?php include "head.php";?>
-    <style> 
+    <style>
     .btn {
         text-align: center;
         margin: 5px auto;
@@ -99,20 +99,20 @@
                 function() {
                     $("#alt").hide()
                 }
-            ) 
+            )
             </script>
             <div class="di di ad" style="height:540px; width:23%; padding:0px; margin-left:22px; float:left;">
                 <!-- 右邊 -->
                 <?php if(isset($_SESSION['admin'])):?>
-                <button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;" 
-                     onclick="lo(&#39;back.php&#39;)">返回管理</button>
+                <button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;"
+                    onclick="lo(&#39;back.php&#39;)">返回管理</button>
                 <?php else:?>
-                 <button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;"
-                     onclick="lo(&#39;?do=login&#39;)">管理登入</button>
+                <button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;"
+                    onclick="lo(&#39;?do=login&#39;)">管理登入</button>
                 <?php endif;?>
                 <div style="width:89%; height:480px;" class="dbor">
                     <span class="t botli">校園映象區</span>
-                    <div class='btn' onclick="pp(1)"><img src="imagess/up.jpg" alt="" srcset=""></div> 
+                    <div class='btn' onclick="pp(1)"><img src="imagess/up.jpg" alt="" srcset=""></div>
                     <div>
                         <?php
                             $images=$Image->all(['sh'=>1]);
@@ -122,32 +122,43 @@
                             echo "</div>";
                             }
                         ?>
-                        </div>
-                        <div class='btn' onclick="pp(2)"><img src="imagess/dn.jpg" alt="" srcset=""></div>
-                        <script>
-                            var nowpage = 0,
-                                num = <?=count($images)?>;
-                            function pp(x) {
-                                var s, t;
-                                if (x == 1 && nowpage - 1 >= 0) {
-                                    nowpage--;
-                                }
-                                if (x == 2 && (nowpage + 1) <= num * 1 - 3) {
-                                    nowpage++;
-                                }
-                                $(".im").hide()
-                                for (s = 0; s <= 2; s++) {
-                                    t = s * 1 + nowpage * 1;
-                                    $("#ssaa" + t).show()
-                                    }
-                                     console.log(x, nowpage, num); // 把 num 也印出來
-                            }
-                            pp(1)      
-                        </script>
-                    </div>      
-                </div>    
-            </div>    
+                    </div>
+                    <div class='btn' onclick="pp(2)"><img src="imagess/dn.jpg" alt="" srcset=""></div>
+                    <script>
+                    var nowpage = 0,
+                        num = <?=count($images)?>;
+
+                    function pp(x) {
+                        var s, t;
+                        if (x == 1 && nowpage - 1 >= 0) {
+                            nowpage--;
+                        }
+                        if (x == 2 && (nowpage + 1) <= num * 1 - 3) {
+                            nowpage++;
+                        }
+                        $(".im").hide()
+                        for (s = 0; s <= 2; s++) {
+                            t = s * 1 + nowpage * 1;
+                            $("#ssaa" + t).show()
+                        }
+                        console.log(x, nowpage, num); // 把 num 也印出來
+                    }
+                    pp(1)
+                    </script>
+                </div>
+            </div>
         </div>
+        <div style="clear:both;"></div>
+        <div
+            style="width:1024px; left:0px; position:relative; background:#FC3; margin-top:4px; height:123px; display:block;">
+            <span class="t" style="line-height:123px;">
+                <?php 
+                    $bottom=$Bottom->find(1);
+                    echo $bottom['bottom'];
+                ?>
+            </span>
+        </div>
+    </div>
     </div>
 
 </body>
